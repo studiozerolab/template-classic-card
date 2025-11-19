@@ -1,0 +1,197 @@
+---
+import { contact, branding } from "../config/site";
+---
+
+<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+  <div
+    class="
+      grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]
+      items-start
+      rounded-2xl
+      bg-[color:var(--color-surface)]
+      text-[color:var(--color-text)]
+      border border-[color:var(--color-strong)]
+      p-8 md:p-10
+      shadow-sm
+    "
+  >
+    <!-- LEFT: TEXT / CONTACT INFO -->
+    <div class="flex flex-col gap-4">
+      <h2 class="text-2xl sm:text-3xl font-bold">
+        {contact.heading}
+      </h2>
+
+      {contact.intro && (
+        <p class="text-base leading-relaxed text-[color:var(--color-text-muted)]">
+          {contact.intro}
+        </p>
+      )}
+
+      <div class="mt-2 space-y-2 text-sm">
+        <p>
+          <span class="font-semibold">Call:</span>{" "}
+          <a
+            href={`tel:${branding.phone.replace(/[^0-9]/g, "")}`}
+            class="text-[color:var(--color-primary)] hover:underline"
+          >
+            {branding.phone}
+          </a>
+        </p>
+        <p>
+          <span class="font-semibold">Email:</span>{" "}
+          <a
+            href={`mailto:${branding.email}`}
+            class="text-[color:var(--color-primary)] hover:underline"
+          >
+            {branding.email}
+          </a>
+        </p>
+        {branding.serviceAreaLabel && (
+          <p class="text-[color:var(--color-text-muted)]">
+            {branding.serviceAreaLabel}
+          </p>
+        )}
+      </div>
+
+      <p class="mt-4 text-xs text-[color:var(--color-text-muted)]">
+        By submitting this form, you agree that we may contact you by phone or email
+        regarding your request. We respect your privacy and never share your information.
+      </p>
+    </div>
+
+    <!-- RIGHT: CONTACT FORM -->
+    <div
+      class="
+        rounded-xl
+        bg-[color:var(--color-alt)]
+        border border-[color:var(--color-mid)]
+        p-6 md:p-7
+      "
+    >
+      <form
+        method="post"
+        class="space-y-4"
+      >
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="flex flex-col gap-1">
+            <label
+              for="name"
+              class="text-sm font-semibold text-[color:var(--color-text)]"
+            >
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              class="
+                rounded-md
+                border border-[color:var(--color-mid)]
+                bg-[color:var(--color-surface)]
+                px-3 py-2 text-sm
+                text-[color:var(--color-text)]
+                outline-none
+                focus:border-[color:var(--color-primary)]
+                focus:ring-1 focus:ring-[color:var(--color-primary)]
+              "
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label
+              for="phone"
+              class="text-sm font-semibold text-[color:var(--color-text)]"
+            >
+              Phone
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              class="
+                rounded-md
+                border border-[color:var(--color-mid)]
+                bg-[color:var(--color-surface)]
+                px-3 py-2 text-sm
+                text-[color:var(--color-text)]
+                outline-none
+                focus:border-[color:var(--color-primary)]
+                focus:ring-1 focus:ring-[color:var(--color-primary)]
+              "
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label
+            for="email"
+            class="text-sm font-semibold text-[color:var(--color-text)]"
+          >
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="
+              rounded-md
+              border border-[color:var(--color-mid)]
+              bg-[color:var(--color-surface)]
+              px-3 py-2 text-sm
+              text-[color:var(--color-text)]
+              outline-none
+              focus:border-[color:var(--color-primary)]
+              focus:ring-1 focus:ring-[color:var(--color-primary)]
+            "
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label
+            for="message"
+            class="text-sm font-semibold text-[color:var(--color-text)]"
+          >
+            How can we help?
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            required
+            class="
+              rounded-md
+              border border-[color:var(--color-mid)]
+              bg-[color:var(--color-surface)]
+              px-3 py-2 text-sm
+              text-[color:var(--color-text)]
+              outline-none
+              focus:border-[color:var(--color-primary)]
+              focus:ring-1 focus:ring-[color:var(--color-primary)]
+              resize-vertical
+            "
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="
+            mt-2
+            inline-flex items-center justify-center
+            rounded-full
+            px-6 py-3
+            text-sm font-semibold
+            bg-[color:var(--color-primary)]
+            text-[color:var(--color-primary-contrast)]
+            hover:opacity-90
+            transition
+          "
+        >
+          Request My Free Estimate
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+---
+import { services } from "../config/site";
+---
+
+<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+  <header class="max-w-2xl mb-8">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3">
+      {services.heading}
+    </h2>
+    {services.intro && (
+      <p class="text-base leading-relaxed text-[color:var(--color-text-muted)]">
+        {services.intro}
+      </p>
+    )}
+  </header>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {services.items.map((item) => (
+      <article
+        class="
+          h-full
+          rounded-xl
+          bg-[color:var(--color-surface)]
+          text-[color:var(--color-text)]
+          shadow-sm
+          border border-[color:var(--color-strong)]
+          p-5
+          flex flex-col gap-3
+        "
+      >
+        <!-- Simple icon placeholder (can be swapped for real icons later) -->
+        <div
+          class="
+            inline-flex items-center justify-center
+            w-9 h-9
+            rounded-full
+            bg-[color:var(--color-primary-tint)]
+            text-[color:var(--color-primary)]
+            text-xs font-semibold
+          "
+          aria-hidden="true"
+        >
+          {item.iconHint ? item.iconHint.charAt(0).toUpperCase() : item.title.charAt(0)}
+        </div>
+
+        <h3 class="text-lg font-semibold">
+          {item.title}
+        </h3>
+
+        <p class="text-sm leading-relaxed text-[color:var(--color-text-muted)]">
+          {item.description}
+        </p>
+      </article>
+    ))}
+  </div>
+</div>

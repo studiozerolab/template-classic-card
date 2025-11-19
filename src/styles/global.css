@@ -1,0 +1,43 @@
+/* src/styles/global.css */
+
+/* 1. Tailwind v4 entry */
+@import "tailwindcss";
+
+/* 2. Design tokens (your theme variables) */
+:root {
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-alt: #f6f7f9;
+  --color-mid: #e5e7eb;
+  --color-strong: #d1d5db;
+
+  /* Primary theme color */
+  --color-primary: #1E40AF;
+  --color-primary-tint: #eef3ff;
+  --color-primary-contrast: #ffffff;
+
+  /* Accent color */
+  --color-accent: #10B981;
+  --color-accent-tint: #e6fdf5;
+
+  /* Text colors */
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+}
+
+/* 3. Optional global typography + container */
+html {
+  font-family: var(--font-body, "Inter"), system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.std-container {
+  max-width: 72rem; /* ~max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

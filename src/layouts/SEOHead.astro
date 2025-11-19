@@ -1,0 +1,31 @@
+---
+import { siteMeta } from "../config/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  url?: string;
+}
+
+const { title, description, url } = Astro.props as Props;
+
+const pageTitle = title ? `${title} | ${siteMeta.title}` : siteMeta.title;
+const pageDescription = description ?? siteMeta.description;
+const pageUrl = url ?? siteMeta.url;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <title>{pageTitle}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={pageDescription} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={pageUrl} />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="/favicon.ico" />
+</head>

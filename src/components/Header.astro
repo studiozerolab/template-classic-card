@@ -1,0 +1,60 @@
+---
+import { branding } from "../config/site";
+import { Image } from "astro:assets";
+
+// OPTIONAL: import a real logo if you have one.
+// Replace with the correct file or delete if not using.
+// import logo from "../assets/logo.png";
+
+const hasLogo = false; // set to true if you import a logo above
+---
+
+<header
+  class="
+    w-full
+    border-b border-[color:var(--color-strong)]
+    bg-[color:var(--color-surface)]
+    text-[color:var(--color-text)]
+  "
+>
+  <div
+    class="
+      mx-auto max-w-6xl
+      px-4 sm:px-6 lg:px-8
+      flex items-center justify-between
+      py-4
+    "
+  >
+    <!-- LEFT: LOGO OR TEXT -->
+    <a href="/" class="flex items-center gap-3">
+      {hasLogo ? (
+        <Image
+          src={logo}
+          alt={branding.businessName}
+          class="h-10 w-auto"
+        />
+      ) : (
+        <span class="text-xl font-bold">
+          {branding.businessName}
+        </span>
+      )}
+    </a>
+
+    <!-- RIGHT: CALL BUTTON -->
+    <a
+      href={`tel:${branding.phone.replace(/[^0-9]/g, "")}`}
+      class="
+        hidden sm:inline-block
+        rounded-full
+        px-5 py-2
+        font-semibold text-sm
+        bg-[color:var(--color-primary)]
+        text-[color:var(--color-primary-contrast)]
+        hover:opacity-90
+        transition
+      "
+    >
+      Call {branding.phone}
+    </a>
+  </div>
+</header>

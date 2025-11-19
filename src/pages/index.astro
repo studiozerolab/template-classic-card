@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import HeroLawnClassic from "../components/HeroLawnClassic.astro";
+import ServicesLawn from "../components/ServicesLawn.astro";
+import AboutLawn from "../components/AboutLawn.astro";
+import ProcessLawn from "../components/ProcessLawn.astro";
+import GalleryLawn from "../components/GalleryLawn.astro";
+import TestimonialsLawn from "../components/TestimonialsLawn.astro";
+import ContactLawn from "../components/ContactLawn.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col gap-16 md:gap-20 lg:gap-24 py-12 md:py-16 lg:py-20">
+    <HeroLawnClassic />
+
+    <section id="services" class="flex flex-col gap-8">
+      <ServicesLawn />
+    </section>
+
+    <section id="about" class="flex flex-col gap-8">
+      <AboutLawn />
+    </section>
+
+    <section id="process" class="flex flex-col gap-8">
+      <ProcessLawn />
+    </section>
+
+    <!-- Optional: comment out entirely if a client doesn't want a gallery -->
+    <section id="gallery" class="flex flex-col gap-8">
+      <GalleryLawn />
+    </section>
+
+    <section id="testimonials" class="flex flex-col gap-8">
+      <TestimonialsLawn />
+    </section>
+
+    <section id="contact" class="flex flex-col gap-8">
+      <ContactLawn />
+    </section>
+  </div>
+</BaseLayout>
