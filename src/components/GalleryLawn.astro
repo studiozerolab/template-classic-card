@@ -2,16 +2,14 @@
 import { gallery } from "../config/site";
 import { Image } from "astro:assets";
 
-// Import each gallery image explicitly
-// Replace these imports to match your actual filenames
-import g1 from "../assets/patioLiving.jpg";
-import g2 from "../assets/poolLiving.jpg";
-import g3 from "../assets/gardenPath.jpg";
-import g4 from "../assets/estateStairs.jpg";
-import g5 from "../assets/apartmentPath.jpg";
-import g6 from "../assets/placeHolder.jpg";
-
-const images = [g1, g2, g3, g4, g5, g6];
+const importedImages = import.meta.glob("../assets/*.{jpg,jpeg,png,webp,svg}", {
+  eager: true,
+  import: "default",
+});
+const galleryImages = gallery.items.map((item) => ({
+  alt: item.alt,
+  src: importedImages[item.src] ?? item.src,
+}));
 ---
 
 <div class="max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -28,7 +26,7 @@ const images = [g1, g2, g3, g4, g5, g6];
   </header>
 
   <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-    {images.map((img, i) => (
+    {galleryImages.map((img) => (
       <figure
         class="
           rounded-xl
@@ -40,8 +38,12 @@ const images = [g1, g2, g3, g4, g5, g6];
       >
         <div class="relative w-full aspect-[4/3]">
           <Image
-            src={img}
-            alt={gallery.items[i].alt}
+            src={img.src}
+            alt={img.alt}
+            widths={[480, 768, 1024, 1400]}
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            loading="lazy"
+            decoding="async"
             class="absolute inset-0 w-full h-full object-cover"
         />
         </div>

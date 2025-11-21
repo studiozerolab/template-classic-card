@@ -3,7 +3,7 @@
 /* 1. Tailwind v4 entry */
 @import "tailwindcss";
 
-/* 2. Design tokens (your theme variables) */
+/* 2. Design tokens (theme variables) */
 :root {
   /* Backgrounds */
   --color-bg: #ffffff;

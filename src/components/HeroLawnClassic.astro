@@ -2,11 +2,14 @@
 import { hero } from "../config/site";
 import { Image } from "astro:assets";
 
-// Import images directly (BEST PRACTICE)
-// Replace these with your actual file names in /src/assets/
-import heroMain from "../assets/cutLawnLow.jpg";
-import heroBed from "../assets/mower.jpg";
-import heroHedges from "../assets/lawnTracks.jpg";
+const importedHeroImages = import.meta.glob("../assets/*.{jpg,jpeg,png,webp,svg}", {
+  eager: true,
+  import: "default",
+});
+const heroImages = hero.heroImages.map((item) => ({
+  alt: item.alt,
+  src: importedHeroImages[item.src] ?? item.src,
+}));
 ---
 
 <section
@@ -108,24 +111,36 @@ import heroHedges from "../assets/lawnTracks.jpg";
           <!-- Large main image -->
           <div class="col-span-2 row-span-2 rounded-xl overflow-hidden relative w-full aspect-[4/3]">
             <Image
-              src={heroMain}
-              alt={hero.heroImages[0].alt}
+              src={heroImages[0].src}
+              alt={heroImages[0].alt}
+              widths={[720, 960, 1200, 1600]}
+              sizes="(min-width: 1024px) 60vw, 100vw"
+              loading="eager"
+              decoding="async"
               class="inset-0 h-full w-full object-cover"
             />
           </div>
 
           <div class="rounded-xl overflow-hidden relative w-full aspect-[4/3]">
             <Image
-              src={heroBed}
-              alt={hero.heroImages[1].alt}
+              src={heroImages[1].src}
+              alt={heroImages[1].alt}
+              widths={[480, 768, 1024, 1400]}
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+              loading="lazy"
+              decoding="async"
               class="inset-0 h-full w-full object-cover"
             />
           </div>
 
           <div class="rounded-xl overflow-hidden relative w-full aspect-[4/3]">
             <Image
-              src={heroHedges}
-              alt={hero.heroImages[2].alt}
+              src={heroImages[2].src}
+              alt={heroImages[2].alt}
+              widths={[480, 768, 1024, 1400]}
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+              loading="lazy"
+              decoding="async"
               class="rounded-xl inset-0 h-full w-full object-cover"
             />
           </div>

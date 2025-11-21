@@ -1,5 +1,5 @@
 ---
-import { branding } from "../config/site";
+import { branding, getLinkToSZ } from "../config/site";
 import { Image } from "astro:assets";
 
 // OPTIONAL: import a small footer logo if desired.
@@ -49,8 +49,10 @@ const hasFooterLogo = false; // set true if you import logoSmall above
     <div class="flex flex-wrap items-center gap-2 justify-start sm:justify-end">
       <span>Website by</span>
       <a
-        href="https://studiozerolab.com"
+        href={getLinkToSZ()}
         class="font-semibold text-[color:var(--color-text)] hover:underline"
+        target="_blank" 
+        rel="noopener"
       >
         STUDIØ
       </a>

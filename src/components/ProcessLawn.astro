@@ -1,5 +1,5 @@
 ---
-import { process } from "../config/site";
+import { processSection } from "../config/site";
 ---
 
 <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -14,17 +14,17 @@ import { process } from "../config/site";
   >
     <header class="max-w-2xl mb-8">
       <h2 class="text-2xl sm:text-3xl font-bold mb-3">
-        {process.heading}
+        {processSection.heading}
       </h2>
-      {process.intro && (
+      {processSection.intro && (
         <p class="text-base leading-relaxed text-[color:var(--color-text-muted)]">
-          {process.intro}
+          {processSection.intro}
         </p>
       )}
     </header>
 
     <ol class="grid gap-6 md:grid-cols-3">
-      {process.steps.map((step, index) => (
+      {processSection.steps.map((step, index) => (
         <li
           class="
             flex flex-col gap-3
