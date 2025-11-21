@@ -62,7 +62,7 @@ export const hero = {
       alt: "Neatly trimmed hedges along a walkway",
     },
   ],
-  quickServicesLine: "Weekly lawn care • Seasonal cleanups • Landscape maintenance",
+  quickServicesLine: "Weekly lawn care • Seasonal cleanups • Design • Maintenance",
 };
 
 export const services = {
@@ -154,17 +154,17 @@ export const processSection = {
     "Getting started is simple. Here's how we go from first call to a yard you're proud of.",
   steps: [
     {
-      title: "1. Walkthrough & Estimate",
+      title: "Walkthrough & Estimate",
       description:
         "Tell us about your property and goals. We'll review the yard and provide a clear, written estimate.",
     },
     {
-      title: "2. Schedule Your Service",
+      title: "Schedule Your Service",
       description:
         "Choose the services and frequency that fit your needs. We'll lock in a schedule you can rely on.",
     },
     {
-      title: "3. Ongoing Care",
+      title: "Ongoing Care",
       description:
         "We show up on time, complete the work, and keep your yard looking its best all season long.",
     },
